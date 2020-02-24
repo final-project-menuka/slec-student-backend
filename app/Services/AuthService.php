@@ -22,7 +22,7 @@ class AuthService{
     }
 
     /**
-     * Login Service Manage By This Method
+     * student Login Service Manage By This Method
      */
     public function login($request){
         if(!empty($request->input('email')) && !empty($request->input('imei'))){
