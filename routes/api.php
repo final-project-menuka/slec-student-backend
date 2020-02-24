@@ -37,6 +37,22 @@ Route::post('/login',[
     'uses'=> 'AuthController@login'
 ]);
 
+Route::post('/lecturer/sign-up',[
+    'uses'=> 'LecturerController@new_lecturer'
+]);
+
+Route::post('/lecturer/mark-attendence',[
+    'uses'=>'LecturerController@mark_attendence'
+]);
+
+Route::post('/lecturer/rollback-attendance',[
+    'uses'=> 'LecturerController@update_attendance_status'
+]);
+
+Route::get('/lecturer/today-time-table',[
+    'uses'=>'LecturerController@get_time_table'
+]);
+
 // Route::fallback(function(){
 //     return response()->json(['message' => 'Not Found.'], 404);
 // })->name('api.fallback.404');
