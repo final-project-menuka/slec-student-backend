@@ -5,20 +5,20 @@ use App\User;
 use Illuminate\Support\Str;
 use App\Exceptions\ExceptionModels;
 use App\OnGoingLec;
-use App\LecturerAttendance;
-use App\Lecturers;
+use App\Lecturer_attendance;
+use App\Lecturer;
 
 /**
  * All Students Services Manage By This Method
  */
-class lecturerService
+class LecturerService
 {
     private $user;
     private $on_going_lec;
     private $lecturer_attendence;
     private $lecturer_model;
 
-    public function __construct(User $user,OnGoingLec $on_going_lec,LecturerAttendance $lecturer_attendence,Lecturers $lecturer_model) {
+    public function __construct(User $user,OnGoingLec $on_going_lec,Lecturer_attendance $lecturer_attendence,Lecturer $lecturer_model) {
         $this->user = $user;
         $this->on_going_lec = $on_going_lec;
         $this->lecturer_attendence = $lecturer_attendence;  
@@ -40,6 +40,8 @@ class lecturerService
                     $this->user->password = hash('sha256',$request->input('password'));
                     $this->user->imei_number = $request->input('imei');
                     $this->user->nsbm_id = $new_lecturer['nsbm_id'];
+                    $this->user->batch = 0.0;
+                    $this->user->course = $new_lecturer['course'];
                     $this->user->role = 1;
                     $this->user->save();
                     return response()->json($this->user,200);

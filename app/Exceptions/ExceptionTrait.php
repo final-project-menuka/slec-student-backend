@@ -60,7 +60,7 @@ trait ExceptionTrait{
         }
         else{
             return response()->json([
-                'MESSAGE'=>"SOMETHING_WENT_WRONG",
+                'MESSAGE'=>$exception->getMessage(),
                 'CODE'=>'SOMETHING_WENT_WRONG'
             ],500);
         }

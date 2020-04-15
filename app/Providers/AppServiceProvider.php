@@ -10,7 +10,7 @@ use App\Services\LecturerService;
 use App\OnGoingLec;
 use App\StudentAttendance;
 use App\Students;
-use App\LecturerAttendance;
+use App\Lecturer_attendance;
 use App\Lecturer;
 
 class AppServiceProvider extends ServiceProvider
@@ -29,7 +29,7 @@ class AppServiceProvider extends ServiceProvider
             return new StudentService(new User(),new OnGoingLec(),new StudentAttendance(),new Students());
         });
         $this->app->singleton(LecturerService::class,function(){
-            return new LecturerService(new User(),new OnGoingLec(),new LecturerAttendance(),new Lecturer());
+            return new LecturerService(new User(),new OnGoingLec(),new Lecturer_attendance(),new Lecturer());
         });
     }
 
